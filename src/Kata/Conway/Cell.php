@@ -31,7 +31,7 @@ class Cell
         return in_array($neighbour, $this->getNeighbours());
     }
 
-    protected function equals($other)
+    public function equals($other)
     {
         return $this->getX() === $other->getX() && $this->getY() === $other->getY();
     }

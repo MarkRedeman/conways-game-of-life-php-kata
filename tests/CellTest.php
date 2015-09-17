@@ -132,6 +132,14 @@ class CellTest extends PHPUnit_Framework_TestCase
         $this->assertContainAllOf($neighbours, $realNeighbours);
     }
 
+    /** @test */
+    public function cells_can_be_equal()
+    {
+        $this->assertTrue((new Cell(0, 0))->equals(new Cell(0, 0)));
+        $this->assertFalse((new Cell(1, 0))->equals(new Cell(0, 0)));
+        $this->assertFalse((new Cell(0, 1))->equals(new Cell(0, 0)));
+    }
+
     public function assertContainAllOf($subjects, $objects)
     {
         $containAllObjects = true;
@@ -145,3 +153,4 @@ class CellTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($containAllObjects, 'The subject is not fully contained in the object');
     }
 }
+
