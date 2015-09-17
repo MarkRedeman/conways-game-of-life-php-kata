@@ -14,8 +14,7 @@ class Board
         $environment = $this->getLiveCells();
 
         foreach ($potentials as $potentialCell) {
-            if ($potentialCell->survivesIn($environment))
-            {
+            if ($potentialCell->survivesIn($environment)) {
                 $nextGeneration[] = $potentialCell;
             }
         }

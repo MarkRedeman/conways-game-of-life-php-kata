@@ -41,8 +41,9 @@ class Cell
         $neighbours = 0;
 
         foreach ($environment as $neighbour) {
-            if ($this->isANeighbour($neighbour))
+            if ($this->isANeighbour($neighbour)) {
                 $neighbours++;
+            }
         }
         return $neighbours;
     }
@@ -51,8 +52,7 @@ class Cell
     {
         $neighbours = $this->neighboursIn($environment);
 
-        if (in_array($this, $environment))
-        {
+        if (in_array($this, $environment)) {
             return in_array($neighbours, self::$survivesWithValues);
         }
 

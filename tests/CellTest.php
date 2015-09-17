@@ -16,13 +16,14 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_has_coordinates() {
+    public function it_has_coordinates()
+    {
         $this->assertEquals($this->cell->getX(), 0);
         $this->assertEquals($this->cell->getY(), 0);
     }
 
     /** @test */
-    function it_can_detect_if_its_a_neighbour()
+    public function it_can_detect_if_its_a_neighbour()
     {
         $neighbour = new Cell(0, 1);
 
@@ -30,7 +31,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_detect_if_its_not_a_neighbour()
+    public function it_can_detect_if_its_not_a_neighbour()
     {
         $not_a_neighbour = new Cell(0, 2);
 
@@ -38,13 +39,13 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_is_not_a_neighbour_to_itself()
+    public function it_is_not_a_neighbour_to_itself()
     {
         $this->assertFalse($this->cell->isANeighbour($this));
     }
 
     /** @test */
-    function it_detects_when_it_has_no_neighbours()
+    public function it_detects_when_it_has_no_neighbours()
     {
         $environment = [];
 
@@ -52,7 +53,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_count_neighbours_in_a_list_of_cells()
+    public function it_can_count_neighbours_in_a_list_of_cells()
     {
         $environment = [
             new Cell(0, 0), new Cell(0, 1), new Cell(1, 0)
@@ -62,7 +63,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_determine_if_it_will_survive_among_the_other_cells()
+    public function it_can_determine_if_it_will_survive_among_the_other_cells()
     {
         $environment = [
             new Cell(0, 0), new Cell(0, 1), new Cell(1, 0)
@@ -72,7 +73,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_dies_if_it_is_alone()
+    public function it_dies_if_it_is_alone()
     {
         $environment = [];
 
@@ -80,7 +81,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_dies_if_it_has_four_neighbours()
+    public function it_dies_if_it_has_four_neighbours()
     {
         $environment = [
             new Cell(0, 0), new Cell(0, 1), new Cell(1, 0),
@@ -93,7 +94,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     // function it_survives_if_it_has_two_neighbours()
 
     /** @test */
-    function it_will_not_spawn_if_it_has_two_neighbours()
+    public function it_will_not_spawn_if_it_has_two_neighbours()
     {
         $environment = [
             new Cell(0, 1), new Cell(1, 0)
@@ -103,7 +104,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_will_spawn_if_it_has_three_neighbours()
+    public function it_will_spawn_if_it_has_three_neighbours()
     {
         $environment = [
             new Cell(0, 1), new Cell(1, 0), new Cell(1, 1)
@@ -113,7 +114,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_can_generate_a_list_of_neighbouring_cells()
+    public function it_can_generate_a_list_of_neighbouring_cells()
     {
         $realNeighbours = [
             new Cell(1, 0),
@@ -135,8 +136,7 @@ class CellTest extends PHPUnit_Framework_TestCase
     {
         $containAllObjects = true;
         foreach ($subjects as $subject) {
-            if (! in_array($subject, $objects))
-            {
+            if (! in_array($subject, $objects)) {
                 $containAllObjects = false;
                 break;
             }

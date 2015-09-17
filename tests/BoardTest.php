@@ -10,14 +10,14 @@ use Kata\Conway\Board;
 class BoardTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
-    function it_should_spawn_an_empty_board_if_empty()
+    public function it_should_spawn_an_empty_board_if_empty()
     {
         $liveCells = (new Board)->spawn()->getLiveCells();
         $this->assertCount(0, $liveCells);
     }
 
     /** @test */
-    function it_should_be_empty_if_seeded_with_an_empty_list()
+    public function it_should_be_empty_if_seeded_with_an_empty_list()
     {
         $board = new Board;
         $board->seed([]);
@@ -25,7 +25,7 @@ class BoardTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_is_filled_when_seeded_with_a_list()
+    public function it_is_filled_when_seeded_with_a_list()
     {
         $board = new Board;
         $board->seed([
@@ -38,7 +38,7 @@ class BoardTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_should_create_a_list_of_potential_cells()
+    public function it_should_create_a_list_of_potential_cells()
     {
         $cell1 = new Cell(0, 0);
         $cell2 = new Cell(1, 0);
@@ -57,7 +57,7 @@ class BoardTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    function it_should_handle_the_blinker_formation()
+    public function it_should_handle_the_blinker_formation()
     {
         $blinker = [new Cell(0, 1), new Cell(1, 1), new Cell(2, 1)];
         $secondBlinker = [new Cell(1, 1), new Cell(1, 0), new Cell(1, 2)];
@@ -79,8 +79,7 @@ class BoardTest extends PHPUnit_Framework_TestCase
     {
         $containAllObjects = true;
         foreach ($subjects as $subject) {
-            if (! in_array($subject, $objects))
-            {
+            if (! in_array($subject, $objects)) {
                 $containAllObjects = false;
                 break;
             }
